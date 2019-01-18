@@ -7,25 +7,36 @@ import moment from 'moment';
 
 const CollectionDetails = (props) => {
   const { collection, auth } = props;
+
   if (!auth.uid) return <Redirect to='/signin' />
 
   if (collection) {
     return (
       <div className="container section collection-details">
         <div className="card z-depth-0">
+
+          { collection.status==="inativo" ?
+            <nav>
+              <div className="nav-wrapper">
+                <h4 className="center">Esta coleção está inativa</h4>
+              </div>
+            </nav>
+            :
+            <div></div>
+          }
           <div className="card-content">
             <div className="row">
               <span className="card-title">{collection.title}</span>
-              <p>{collection.content}</p>
+              <p>{collection.description}</p>
             </div>
             <div className="row card-action lighten-4">
               <div className="col s6">
                 <span className="card-title">Capa 1</span>
-                <img className="responsive-img" src={collection.imageCover1} alt="" />
+                <img className="responsive-img" src={collection.image1} alt="" />
               </div>
               <div className="col s6">
                 <span className="card-title">Capa 2</span>
-                <img className="responsive-img" src={collection.imageCover2} alt="" />
+                <img className="responsive-img" src={collection.image2} alt="" />
               </div>
             </div>
           </div>

@@ -1,3 +1,6 @@
+htm, body {
+  height: 100%;
+}
 body {
   margin: 0;
   padding: 0;
@@ -8,6 +11,53 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   background: #9F9F9F;
+}
+
+.btn-floating i {
+  font-size: 1.2rem;
+  line-height: 30px;
+}
+.btn-floating {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.inativo {
+  opacity: 0.5;
+}
+
+.create .progress{
+  top: 0;
+  height: 10px;
+  margin: 0
+}
+
+.product-details h4,
+.collection-details h4 {
+  line-height: 183%;
+}
+.product-list .card {
+  max-width: 250px;
+  max-height: 450px!important;
+}
+.product-list .card .card-content .card-title {
+  font-size: 13px;
+}
+.product-list .card .title-collection {
+  float: left;
+  font-size: 13px;
+  width: 100%;
+  padding-left: 23px;
+}
+
+.card .card-author{
+  text-align: center;
+  font-size: 13px;
+}
+.card .card-date {
+  text-align: center;
+  font-size: 11px;
 }
 
 form {
