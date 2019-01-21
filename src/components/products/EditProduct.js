@@ -93,7 +93,7 @@ class EditProduct extends Component {
 
     if (!auth.uid) return <Redirect to='/signin' />
 
-    if (title) {
+    if (reference) {
 
       return (
         <div className="container">
