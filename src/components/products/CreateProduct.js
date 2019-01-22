@@ -89,7 +89,6 @@ class CreateProduct extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.createProduct(this.state);
-    this.props.history.push('/products');
   }
   render() {
     const { auth, collections } = this.props;
