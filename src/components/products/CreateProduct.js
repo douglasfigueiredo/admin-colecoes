@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/storage';
 
-import { Row, Input } from 'react-materialize';
+import { Row, Col, Input } from 'react-materialize';
 
 class CreateProduct extends Component {
 
@@ -25,7 +25,6 @@ class CreateProduct extends Component {
   componentDidMount(){
     console.log("Didimount")
   }
-
 
   fileSelectedHandler = (e) => {
     const file = e.target.files[0];
@@ -160,7 +159,7 @@ class CreateProduct extends Component {
               <textarea id="details" cols="30" rows="10" className="materialize-textarea" onChange={this.handleChange}>
               </textarea>
             </div>
-            <div className="file-field input-field">
+
               <Row>
                 {this.state.uploadValue === 0 || this.state.uploadValue===100 ? null :
                   <div className="col s12">
@@ -171,30 +170,49 @@ class CreateProduct extends Component {
                   </div>
                 }
               </Row>
-              <div className="btn">
-                <span>Imagem do produto</span>
-                <input type="file" id="image1" onChange={this.fileSelectedHandler}/>
-              </div>
-              <div className="file-path-wrapper">
-                <input className="file-path validate" type="text" placeholder="Imagem do produto"/>
-              </div>
-              <div>
-                <img className="responsive-img" src={this.state.image1} alt="" />
-              </div>
-            </div>
+              <Row>
+              <Col s={6}>
+                <div className="file-field input-field">
+                  <div className="btn">
+                    <span>Image do produto</span>
+                    <input type="file" id="image1" onChange={this.fileSelectedHandler}/>
+                  </div>
+                  <div className="file-path-wrapper">
+                    <input className="file-path validate" type="text" placeholder="Imagem do produto"/>
+                  </div>
+                </div>
+              </Col>
+              <Col s={6}>
+                <div className="file-field input-field">
+                  <div className="btn">
+                    <span>Image de uso</span>
+                    <input type="file" id="image2" onChange={this.fileSelectedHandler}/>
+                  </div>
+                  <div className="file-path-wrapper">
+                    <input className="file-path validate" type="text" placeholder="Imagem de uso"/>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col s={6}>
+                <div className="file-field input-field">
+                  {
+                    this.state.image1 ? <img className="responsive-img" src={this.state.image1} alt="" />
+                    :<img className="responsive-img" src={this.state.image1} alt="" />
+                  }
+                </div>
+              </Col>
+              <Col s={6}>
+                <div className="file-field input-field">
+                  {
+                    this.state.image2 ? <img className="responsive-img" src={this.state.image2} alt="" />
+                    :<img className="responsive-img" src={this.state.image2} alt="" />
+                  }
+                </div>
+              </Col>
+            </Row>
 
-            <div className="file-field input-field">
-              <div className="btn">
-                <span>Imagem de uso</span>
-                <input type="file" id="image2" onChange={this.fileSelectedHandler}/>
-              </div>
-              <div className="file-path-wrapper">
-                <input className="file-path validate" type="text" placeholder="Imagem de uso (Não é obrigatório)"/>
-              </div>
-              <div>
-                <img className="responsive-img" src={this.state.image2} alt="" />
-              </div>
-            </div>
             <div className="input-field">
               <button className="btn pink lighten-1 z-depth-0">Salvar</button>
             </div>
