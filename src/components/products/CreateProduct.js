@@ -23,8 +23,6 @@ class CreateProduct extends Component {
   }
 
   componentDidMount(){
-    // $('.pushpin').pushpin();
-
     console.log("Didimount")
   }
 
@@ -86,6 +84,7 @@ class CreateProduct extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.createProduct(this.state);
+    document.getElementById('form').reset();
   }
   render() {
     const { auth, collections } = this.props;
@@ -94,12 +93,8 @@ class CreateProduct extends Component {
 
     return (
       <div className="create">
-        <div className="progress pinned">
-          {/* <div className="determinate"></div> */}
-          <div className="determinate" style={{width: this.state.uploadValue+"%"}}></div>
-        </div>
         <div className="container">
-          <form onSubmit={this.handleSubmit} className="white">
+          <form onSubmit={this.handleSubmit} className="white" id="form">
             <h5 className="grey-text text-darken-3">Novo Produto</h5>
             <div className="input-field">
               <label htmlFor="title">Título: (Brinco, Brinco quadrado, Brinco vazado e etc...)</label>
@@ -166,6 +161,16 @@ class CreateProduct extends Component {
               </textarea>
             </div>
             <div className="file-field input-field">
+              <Row>
+                {this.state.uploadValue === 0 || this.state.uploadValue===100 ? null :
+                  <div className="col s12">
+                    <span>Carregando arquivo...</span>
+                    <div className="progress">
+                      <div className="determinate" style={{width: this.state.uploadValue+"%"}}></div>
+                    </div>
+                  </div>
+                }
+              </Row>
               <div className="btn">
                 <span>Imagem do produto</span>
                 <input type="file" id="image1" onChange={this.fileSelectedHandler}/>
@@ -190,10 +195,6 @@ class CreateProduct extends Component {
                 <img className="responsive-img" src={this.state.image2} alt="" />
               </div>
             </div>
-            {/* <div className="progress">
-              <div className="determinate" style={{width: this.state.uploadValue+"%"}}></div>
-            </div> */}
-
             <div className="input-field">
               <button className="btn pink lighten-1 z-depth-0">Salvar</button>
             </div>
