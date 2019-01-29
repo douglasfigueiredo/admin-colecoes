@@ -21,16 +21,16 @@ class App extends Component {
           <NavBar />
           <Switch>
             <Route exact path='/' component={Collections} />
-            <Route path='/signin' component={SignIn} />
-            <Route path='/signup' component={SignUp} />
-            <Route path='/collections' component={Collections} />
-            <Route path='/collection/:id' component={CollectionDetails} />
-            <Route path='/editCollection/:id' component={EditCollection} />
-            <Route path='/createCollection' component={CreateCollection} />
-            <Route path='/products' component={Products} />
-            <Route path='/product/:id' component={ProductDetails} />
-            <Route path='/editProduct/:id' component={EditProduct} />
-            <Route path='/createProduct' component={CreateProduct} />
+            <Route exact path='/signin' component={SignIn} />
+            <Route exact path='/signup' component={SignUp} />
+            <Route exact path='/collections' component={Collections} />
+            <Route exact path='/collection/:id' component={CollectionDetails} />
+            <Route exact path='/editCollection/:id' component={EditCollection} />
+            <Route exact path='/createCollection' component={CreateCollection} />
+            {/* <Route exact path='/products' component={Products} /> */}
+            <Route exact path='/product/:id' component={ProductDetails} />
+            <Route exact path='/editProduct/:id' component={EditProduct} />
+            <Route exact path='/createProduct' component={CreateProduct} />
           </Switch>
         </div>
       </BrowserRouter>
